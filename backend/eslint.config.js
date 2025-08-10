@@ -11,8 +11,13 @@ export default [
       ecmaVersion: 2022,
       sourceType: "module",
       globals: {
-        ...globals.node,     
-        fetch: "readonly"    
+        globals: {
+        console: "readonly",
+        process: "readonly",
+        setTimeout: "readonly",
+        clearTimeout: "readonly",
+        fetch: "readonly"
+        }  
       }
     },
     rules: {
