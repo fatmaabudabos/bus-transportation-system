@@ -33,5 +33,5 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      - name: Perform Health Check
-        run: npm run test
+      - name: Run Health Check
+        run: npm run health

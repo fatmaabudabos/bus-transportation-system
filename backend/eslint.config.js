@@ -5,8 +5,7 @@ export default [
     files: ["**/*.js", "**/*.mjs"],
     ignores: [
       "node_modules",
-      "dist",
-      "coverage"
+      "scripts"
     ],
     languageOptions: {
       ecmaVersion: 2022,

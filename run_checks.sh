@@ -15,6 +15,6 @@ echo "[lint] Running ESLint..."
 npm run lint
 
 echo "[health] Running health check..."
-npm run test
+npm run health
 
 echo "All checks passed!"
