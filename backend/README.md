@@ -12,6 +12,7 @@ A simple Node.js backend server using Express.
 2. **Start the server:**
    ```bash
    npm run dev
+    
    ```
 
 3. **Open in browser:**
@@ -22,3 +23,4 @@ A simple Node.js backend server using Express.
 - Node.js
 - Express.js
 - Nodemon (for development)
+- test
