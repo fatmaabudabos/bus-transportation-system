@@ -253,7 +253,8 @@ app.get('/user/bookings', (req, res) => {
         return res.status(401).json({ success: false, message: 'Not authenticated' });
     }
     
-r.id)
+    r.id
+})
         .map(booking => {
             const trip = trips.find(t => t.id === booking.tripId);
             return {
@@ -265,7 +266,7 @@ r.id)
         });
     
     res.json(userBookings);
-});
+
 
 app.get('/user/stats', (req, res) => {
     if (!currentUser) {
@@ -345,7 +346,7 @@ app.get('/user/favorites', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Backend running on http://localhost:${PORT}`);
     console.log(`Frontend should be on http://localhost:5173 or http://localhost:5174`);
-});r.id)
+});r.id
         .map(booking => {
             const trip = trips.find(t => t.id === booking.tripId);
             return {
@@ -357,7 +358,7 @@ app.listen(PORT, () => {
         });
     
     res.json(userBookings);
-});
+
 
 app.get('/user/stats', (req, res) => {
     if (!currentUser) {

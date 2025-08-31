@@ -151,6 +151,36 @@ app.delete('/admin/trips/:id', (req, res) => {
     res.json({ success: true });
 });
 
+app.post('/user/recharge', (req, res) => {
+    if (!currentUser) {
+        return res.status(401).json({ success: false, message: 'Not authenticated' });
+    }
+    
+    const { amount } = req.body;
+    
+    if (!amount || amount <= 0 || amount > 500) {
+        return res.status(400).json({ success: false, message: 'Invalid amount. Must be between $1 and $500.' });
+    }
+    
+    const userIndex = users.findIndex(u => u.id === currentUser.id);
+    if (userIndex === -1) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    
+    if (!users[userIndex].quota) {
+        users[userIndex].quota = 0;
+    }
+    
+    users[userIndex].quota += amount;
+    currentUser.quota = users[userIndex].quota;
+    
+    res.json({ 
+        success: true, 
+        message: `Successfully recharged $${amount}`,
+        newQuota: users[userIndex].quota
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`✅ Backend running on http://localhost:${PORT}`);
     console.log(`🌐 Frontend should be on http://localhost:5173 or http://localhost:5174`);
